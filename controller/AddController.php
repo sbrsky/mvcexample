@@ -41,12 +41,15 @@ Class AddController  {
         $width = $_POST['width'];
         $length = $_POST['length'];
 
-        $_dbTable->baseUpdate($name,$price,$sku,$weight,$size,$height,$width,$length,$type);
+        require_once "classes/abstract/CardFactory.php";
+
+        $product = CardFactory::build($type,$name,$price,$sku,$weight,$size,$height,$width,$length);
 
 
-        //  header("Location: /");
+        print_r($product);
 
-        //  $this->registry['layout']->view('a')
+
+
 
     }
 

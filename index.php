@@ -7,14 +7,13 @@ function __autoload($class_name)
 {
     $filename = strtolower($class_name) . '.php';
     $file = SITE_PATH . 'classes' . DIRSEP . $filename;
-    //var_dump($file);
     if (file_exists($file) == false) {
         return false;
     }
     include($file);
 }
 
-/*File with Gloval Variables */
+/*File with Global Variables */
 $registry = new Registry;
 
 /*
