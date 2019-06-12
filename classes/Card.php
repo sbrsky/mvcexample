@@ -3,15 +3,79 @@
 
 abstract class Card
 {
-protected $name;
-protected $price;
-protected $sku;
+    protected $name;
+    protected $price;
+    protected $sku;
+    protected $sql;
 
+    function writeToBase(){
 
- function writeToBase(){
+        $base = new MainClass();
+        $base->baseUpdate($this->sql);
+    }
 
-    $sql = "INSERT INTO `sku` (`id`, `name`, `price`, `sku`, `size`, `weight`, `height`,`width`,`length`,`type`) VALUES (NULL, '$this->name', '$this->price', '$this->sku', '$this->size', '$this->weight','$this->h','$this->w','$this->l','$this->type');";
+    /**
+     * @return mixed
+     */
+    public function getSql()
+    {
+        return $this->sql;
+    }
 
- }
+    /**
+     * @param mixed $sql
+     */
+    public function setSql($sql)
+    {
+        $this->sql = $sql;
+    }
 
- }
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param mixed $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSku()
+    {
+        return $this->sku;
+    }
+
+    /**
+     * @param mixed $sku
+     */
+    public function setSku($sku)
+    {
+        $this->sku = $sku;
+    }
+
+}

@@ -37,22 +37,13 @@ Class MainClass extends Db_Base {
     }
 
     /*   write to DB  */
-    public function baseUpdate ($name, $price, $sku, $weight,$size,$h,$w,$l,$type)
+    public function baseUpdate ($product)
     {
-        // Check vars before writing to DB
-        if ($name == '' ) {$name = 'none'; }
-        if ($weight == '' || !ctype_digit($weight)) {$weight = 0; }
-        if ($size == '' || !ctype_digit($size)){$size = 0; }
-        if ($h == ''|| !ctype_digit($h)) {$h = 0;}
-        if ($w == ''|| !ctype_digit($w)) {$w = 0;}
-        if ($l == ''|| !ctype_digit($l)) {$l = 0;}
 
-
-        $sql = "INSERT INTO `sku` (`id`, `name`, `price`, `sku`, `size`, `weight`, `height`,`width`,`length`,`type`) VALUES (NULL, '$name', '$price', '$sku', '$size', '$weight','$h','$w','$l','$type');";
-
-        // Connect to DB via parents class method
+    //    $this->sql = "INSERT INTO `sku` (`id`, `name`, `price`, `sku`, `size`, `weight`, `height`,`width`,`length`,`type`) VALUES (NULL, '$this->name', '$this->price', '$this->sku', '$this->size', '$this->weight','$this->h','$this->w','$this->l','$this->type');";
+    $sql =  $product->getSql();
+   // Connect to DB via parents class method
         $link = $this->baseConnect();
-
 // Check connection
         if($link === false){
             die("ERROR: Could not connect. " . mysqli_connect_error());

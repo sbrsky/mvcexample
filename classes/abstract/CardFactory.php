@@ -14,10 +14,10 @@ abstract class CardFactory {
 
             // Assuming Class files are already loaded using autoload concept
             if(class_exists($className)) {
-                $classBean = new $className($name, $price, $sku,$weight,$size,$height,$width,$length);
+                $classBean = new $className($name, $price, $sku,$weight,$size,$height,$width,$length,$type);
                 return $classBean;
             } else {
-                throw new Exception('Car type not found.');
+                throw new Exception('Card type not found.');
             }
         }
     }

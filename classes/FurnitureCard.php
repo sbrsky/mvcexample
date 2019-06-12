@@ -5,7 +5,7 @@ class FurnitureCard extends Card
 {
     private $height;
     private $width;
-    private $lenght;
+    private $length;
 
     /**
      * Card constructor.
@@ -13,14 +13,16 @@ class FurnitureCard extends Card
      * @param $price
      * @param $sku
      */
-    public function __construct($name, $price, $sku,$weight,$size,$height,$width,$length)
+    public function __construct($name, $price, $sku,$weight,$size,$height,$width,$length,$type)
     {
         $this->name = $name;
         $this->price = $price;
         $this->sku = $sku;
         $this->height = $height;
         $this->width = $width;
-        $this->lenght = $length;
+        $this->length = $length;
+        $this->sql = "INSERT INTO `sku` (`id`, `name`, `price`, `sku`,`height`,`width`,`length`,`type`) VALUES (NULL, '$this->name', '$this->price', '$this->sku', '$this->height','$this->width','$this->length','$type');";
+
     }
 
 

@@ -23,15 +23,14 @@ Class MainController  {
 
         $_dbTable		=	new MainClass();
         $records		=	$_dbTable->showPage();
-            //var_dump($records);
-            //die;
-            $this->registry['layout']->sets(array(
-                'records' => $records,
-            ));
 
-         //   $this->registry['layout']->
+        $this->registry['layout']->sets(array(
+            'records' => $records,
+        ));
 
-            $this->registry['layout']->view('main');
+
+
+        $this->registry['layout']->view('main');
 
     }
 

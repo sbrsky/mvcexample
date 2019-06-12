@@ -27,8 +27,9 @@ Class AddController  {
 
     }
 
-    public function add() {
-        $_dbTable		=	new MainClass();
+    public function add()
+    {
+        $_dbTable = new MainClass();
 
         $name = $_POST['name'];
         $price = $_POST['price'];
@@ -36,52 +37,45 @@ Class AddController  {
         $weight = $_POST['weight'];
         $size = $_POST['size'];
         $type = $_POST['type'];
-        // Dimensions for funiture
         $height = $_POST['height'];
         $width = $_POST['width'];
         $length = $_POST['length'];
 
         require_once "classes/abstract/CardFactory.php";
 
-        $product = CardFactory::build($type,$name,$price,$sku,$weight,$size,$height,$width,$length);
-
-
-        print_r($product);
-
-
-
-
+        $product = CardFactory::build($type, $name, $price, $sku, $weight, $size, $height, $width, $length,$type);
+        $_dbTable->baseUpdate($product);
     }
 
-public function DeletePicturs() {
+    public function DeletePicturs() {
 
 
-    if(isset($_POST['picturs'])) {
+        if(isset($_POST['picturs'])) {
 
-        $stack			=	true;
-        $_dbTable		=	new MainClass();
-        $arr			=	$_POST['picturs'];
+            $stack			=	true;
+            $_dbTable		=	new MainClass();
+            $arr			=	$_POST['picturs'];
 
-        foreach ($arr as $value) {
+            foreach ($arr as $value) {
 
-            $stack	=	$_dbTable->deleteRecord($value);
+                $stack	=	$_dbTable->deleteRecord($value);
+            }
+
+            $answer	=	true;
+
+        }else{
+
+            $answer	=	false;
+            $stack	=	false;
+
         }
-
-        $answer	=	true;
-
-    }else{
-
-        $answer	=	false;
-        $stack	=	false;
+        $json = json_encode(array(
+            'stack'				=>	$stack,
+            'success' 			=>  $answer
+        ));
+        echo $json;
+        exit;
 
     }
-    $json = json_encode(array(
-        'stack'				=>	$stack,
-        'success' 			=>  $answer
-    ));
-    echo $json;
-    exit;
-
-}
 
 }
