@@ -31,7 +31,6 @@ define ('DBHOST', 'localhost');
 define ('DBUSER', 'root');
 define ('DBPASS', '');
 define ('DBNAME', 'test');
+define ('CHARSET', 'utf8mb4');
 
 define ('THUBN', 'th_');
-
-?>

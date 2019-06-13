@@ -1,6 +1,6 @@
 <?php
 
-require_once SITE_PATH . 'model'. DIRSEP .'Main.php';
+
 
 /**
  * Class Controller_Main
@@ -9,41 +9,21 @@ require_once SITE_PATH . 'model'. DIRSEP .'Main.php';
  */
 
 
-Class MainController  {
-
-    protected $registry;
-
-
-    function __construct($registry) {
-        $this->registry = $registry;
+Class MainController extends Controller
+{
+    function __construct($registry)
+    {
+        parent::__construct($registry);
     }
 
     // -- Start index page
-    public function index() {
-
-        $_dbTable		=	new MainClass();
-        $records		=	$_dbTable->showPage();
-
-        $this->registry['layout']->sets(array(
-            'records' => $records,
-        ));
-
-
-
-        $this->registry['layout']->view('main');
-
+    public function index()
+    {
+        $this->page = 'main';
+        $records		=	$this->productRepo->selectAll();
+        $this->pageData['title'] = "ScandiWeb Test v2.2 Main Page";
+        $this->pageData['records'] = $records;
+        $this->registry['view']->render($this->page, $this->pageData);
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

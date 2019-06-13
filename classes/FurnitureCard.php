@@ -13,15 +13,13 @@ class FurnitureCard extends Card
      * @param $price
      * @param $sku
      */
-    public function __construct($name, $price, $sku,$weight,$size,$height,$width,$length,$type)
+    public function __construct($incomePostArray)
     {
-        $this->name = $name;
-        $this->price = $price;
-        $this->sku = $sku;
-        $this->height = $height;
-        $this->width = $width;
-        $this->length = $length;
-        $this->sql = "INSERT INTO `sku` (`id`, `name`, `price`, `sku`,`height`,`width`,`length`,`type`) VALUES (NULL, '$this->name', '$this->price', '$this->sku', '$this->height','$this->width','$this->length','$type');";
+        parent::__construct($incomePostArray);
+        $this->width = $incomePostArray['width'];
+        $this->height = $incomePostArray['height'];
+        $this->length = $incomePostArray['length'];
+        $this->sql = "INSERT INTO `sku` (`id`, `name`, `price`, `sku`,`height`,`width`,`length`,`type`) VALUES (NULL, '$this->name', '$this->price', '$this->sku', '$this->height','$this->width','$this->length','$this->type');";
 
     }
 

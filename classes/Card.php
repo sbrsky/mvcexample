@@ -3,16 +3,66 @@
 
 abstract class Card
 {
+    protected $id;
     protected $name;
     protected $price;
     protected $sku;
     protected $sql;
+    protected $type;
+    protected $alldata;
+
+    /**
+     * Card constructor.
+     * @param $incomePostArray
+     */
+    public function __construct($incomePostArray)
+    {
+        $this->alldata = $incomePostArray;
+        $this->name = $incomePostArray['name'];
+        $this->price = $incomePostArray['price'];
+        $this->sku = $incomePostArray['sku'];
+        $this->type = $incomePostArray['type'];
+    }
+
 
     function writeToBase(){
 
-        $base = new MainClass();
+        $base = new Model();
         $base->baseUpdate($this->sql);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAlldata()
+    {
+        return $this->alldata;
+    }
+
+    /**
+     * @param mixed $alldata
+     */
+    public function setAlldata($alldata)
+    {
+        $this->alldata = $alldata;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
 
     /**
      * @return mixed

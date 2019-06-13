@@ -30,6 +30,8 @@ $layout = new Layout($registry);
 $registry->set('layout', $layout);
 //var_dump($registry['layout']);
 
+$view = new View();
+$registry->set('view', $view);
 
 /*
 * include Router

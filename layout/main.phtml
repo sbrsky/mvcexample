@@ -1,3 +1,4 @@
+<?php  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
     <link rel="stylesheet" href="/css/bootstrap-reboot.css">
     <link rel="stylesheet" href="/css/bootstrap-grid.css">
 
-    <title>Test task for scandiweb</title>
+    <title><?php echo $pageData['title']; ?></title>
 
 </head>
 <body>
@@ -29,19 +30,19 @@ include "tpl/navbar.phtml";
 
         <div class="row">
             <?php
-            for ($i=0; $i<sizeof($records) ; $i++) {
+            for ($i=0; $i<sizeof($pageData['records']) ; $i++) {
                 ?>
                 <div class="col-md-4 pic">
                     <div class="card mb-4 shadow-sm">
-                        <img src="https://source.unsplash.com/640x480/?<?= $records[$i]->type ?>,<?= $records[$i]->name ?>" class="card-img-top" alt="...">
+                        <img src="https://source.unsplash.com/640x480/?<?= $pageData['records'][$i]['type'] ?>,<?= $pageData['records'][$i]['name'] ?>" class="card-img-top" alt="...">
                         <div class="card-body">
 
-                            <p class="card-text"><?= $records[$i]->name ?></p>
-                            <p class="card-text"><?= $records[$i]->price ?></p>
-                            <p class="card-text"><?= $records[$i]->sku ?></p>
+                            <p class="card-text"><?= $pageData['records'][$i]['name'] ?></p>
+                            <p class="card-text"><?= $pageData['records'][$i]['price'] ?></p>
+                            <p class="card-text"><?= $pageData['records'][$i]['sku'] ?></p>
                             <div class="custom-control custom-checkbox checkboxes text-right">
-                                <input type="checkbox" class="custom-control-input" id="<?= $records[$i]->id ?>" value="<?= $records[$i]->id ?>">
-                                <label class="custom-control-label" for="<?= $records[$i]->id ?>"></label>
+                                <input type="checkbox" class="custom-control-input" id="<?= $pageData['records'][$i]['id'] ?>" value="<?= $pageData['records'][$i]['id'] ?>">
+                                <label class="custom-control-label" for="<?= $pageData['records'][$i]['id'] ?>"></label>
                             </div>
                             <!-- For further upgrade, to include view/edit buttons and date of creation -->
 

@@ -136,7 +136,7 @@ reak;
         //alert(picturs);
         //event.preventDefault();
 
-        var serviceURL = 'add/DeletePicturs';
+        var serviceURL = 'add/DeletePictures';
 
         var datastring = {'picturs': picturs};
 
