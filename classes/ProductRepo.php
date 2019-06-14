@@ -1,11 +1,10 @@
 <?php
 
-
 class ProductRepo implements InterfaceRepo
 {
-
     /**
-     * @var Model
+     * @var model = class Model;
+     * @var nameTable = table in your SqL databaase.
      */
     private $model;
     protected $nameTable = 'sku';
@@ -16,9 +15,8 @@ class ProductRepo implements InterfaceRepo
         $this->model = new Model();
     }
 
-    public function add(Card $product)
+    public function add(BaseProduct $product)
     {
-
         $permitted = array("name","sku","price","size","weight","width","length","height","type");
         $sql = "INSERT INTO $this->nameTable SET ".$this->pdoPrepareSql($permitted,$values,$product->getAlldata());
         $this->model->insertToBase($sql,$values);
@@ -29,17 +27,21 @@ class ProductRepo implements InterfaceRepo
         return $this->model->selectAllFromTable($this->nameTable);
     }
 
+    /**
+     * @param $arr ( Array with ID's , int )
+     */
     public function deleteProductById($arr)
     {
         foreach ($arr as $value) {
-
           $this->model->deleteRecord($value,$this->nameTable);
         }
     }
 
-    function pdoPrepareSql($permitted, &$values, $source = array()) {
+    public function pdoPrepareSql($permitted, &$values, $source = array())
+    {
         $set = '';
         $values = array();
+
         if (!$source) $source = &$_POST;
         foreach ($permitted as $field) {
             if (isset($source[$field])) {

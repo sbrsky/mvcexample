@@ -31,48 +31,41 @@ $(document).ready(function () {
             case 'book':
                 $( "#pole1" ).empty();
                 $('\
-                \
                 <div id="pole2">\
-                \
                 \<div class="alert alert-dismissible alert-primary">\
                     <button type="button" class="close" data-dismiss="alert">&times;</button>\
                         <strong>Hint!</strong> Please provide weight in KG\
                 </div>\
-									   		\
-									   		<div class="mb-3">\
-									   			<label for="weight">WEIGHT <span class="text-muted"></span></label>\
-									   			<input type="number" class="form-control" id="weight" name="weight" placeholder="weight" maxlength="14">\
-								                    <div class="invalid-feedback">\
-								                        Please enter a valid weight.\
-								                    </div>\
-									   		</div>\
-								   		</div>\
-								   		\
-								   		\
-								   		\
+				<div class="mb-3">\
+				<label for="weight">WEIGHT <span class="text-muted"></span></label>\
+				<input type="number" class="form-control" id="weight" name="weight" placeholder="weight" maxlength="14" min="1" max="9999">\
+				<div class="invalid-feedback">\
+				Please enter a valid weight.\
+				</div>\
+				</div>\
+				</div>\
 								   		')
                     .fadeIn('slow')
                     .appendTo('#pole1');
-reak;
+                break;
+
             case 'dvd':
 
                 $( "#pole1" ).empty();
 
                 $('<div id="pole3">\
-                \
                 \<div class="alert alert-dismissible alert-primary">\
                     <button type="button" class="close" data-dismiss="alert">&times;</button>\
                         <strong>Hint!</strong> Please provide size in MB\
                 </div>\
-									   		\
-								    		<div class="mb-3">\
-								    		<label for="size">Size<span class="text-muted"></span></label>\
-							                    <input type="number" class="form-control" id="size" name="size" placeholder="Size"  maxlength="14">\
-								                    <div class="invalid-feedback">\
-								                        Please enter your Size.\
-								                    </div>\
-								    		</div>\
-								     	</div>')
+				<div class="mb-3">\
+					<label for="size">Size<span class="text-muted"></span></label>\
+							 <input type="number" class="form-control" id="size" name="size" placeholder="Size"  min="1" max="9999">\
+								   <div class="invalid-feedback">\
+								       Please enter your Size.\
+								   </div>\
+				</div>\
+				</div>')
                     .fadeIn('slow')
                     .appendTo('#pole1');
 
@@ -82,29 +75,25 @@ reak;
 
                 $( "#pole1" ).empty();
                 $('<div id="pole4">\
-                \
                 \<div class="alert alert-dismissible alert-primary">\
                     <button type="button" class="close" data-dismiss="alert">&times;</button>\
                         <strong>Hint!</strong> Please provide dimensions HxLxW\
                 </div>\
-									   		\
-								    		<div class="mb-3">\
-								                    <label for="height"> Height <span class="text-muted"></span></label>\
-								                    <input type="number" class="form-control" id="height" name="height" maxlength="14" placeholder="DIM: H">\
-								                </div>\
-								                <div class="mb-3">\
-								                    <label for="length"> Length <span class="text-muted"></span></label>\
-								                    <input type="number" class="form-control" id="length" name="length" maxlength="14" placeholder="DIM: L">\
-								                </div>\
-								                <div class="mb-3">\
-								                    <label for="width"> Width <span class="text-muted"></span></label>\
-								                    <input type="number" class="form-control" id="width" name="width" maxlength="14" placeholder="DIM: W">\
-								                </div>\
-								     	</div>')
+					<div class="mb-3">\
+						<label for="height"> Height <span class="text-muted"></span></label>\
+						<input type="number" class="form-control" id="height" name="height" maxlength="14" placeholder="DIM: H" min="1" max="9999">\
+					</div>\
+				<div class="mb-3">\
+						<label for="length"> Length <span class="text-muted"></span></label>\
+						<input type="number" class="form-control" id="length" name="length" maxlength="14" placeholder="DIM: L" min="1" max="9999">\
+				</div>\
+				 <div class="mb-3">\
+						<label for="width"> Width <span class="text-muted"></span></label>\
+						<input type="number" class="form-control" id="width" name="width" maxlength="14" placeholder="DIM: W" min="1" max="9999">\
+				</div>\
+				</div>')
                     .fadeIn('slow')
                     .appendTo('#pole1');
-
-
                 break;
             default:
 
@@ -115,7 +104,7 @@ reak;
     });
 
     /**
-     *  For Delete From DB and index Cards and data
+     *  For Delete From DB and index Products and data
      *
      *
      */
@@ -132,9 +121,6 @@ reak;
             }
 
         });
-
-        //alert(picturs);
-        //event.preventDefault();
 
         var serviceURL = 'add/DeletePictures';
 

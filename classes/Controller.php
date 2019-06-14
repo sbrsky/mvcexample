@@ -1,18 +1,11 @@
 <?php
 
-
 abstract class Controller
 {
     protected $registry;
     protected $pageData = array();
     protected $page = 'main';
-    /**
-     * @var View
-     */
-    protected $view ;
-    /**
-     * @var ProductRepo
-     */
+    protected $view;
     protected $productRepo;
 
     function __construct($registry) {

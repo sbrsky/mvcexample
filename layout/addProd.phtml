@@ -5,23 +5,19 @@
     <?php
     include "tpl/head.phtml";
     ?>
-
-
+    <!-- End Head. Css.  -->
+    <title>Test task for scandiweb - Add page</title>
 </head>
 <body class="bg-light">
-
 <!-- NAVBAR -->
 <?php
 include "tpl/navbar.phtml";
 ?>
 <!-- END of NAVBAR -->
-
-<!-- Start of Form -->
 <div class="container">
     <div class="py-5 text-center">
         <h2>ADD PRODUCT</h2>
     </div>
-
     <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -51,11 +47,10 @@ include "tpl/navbar.phtml";
                     <span class="text-muted" id="briefprice"></span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed" id="briefparam">
-
                 </li>
-
             </ul>
         </div>
+        <!-- Start of Form -->
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Product Add Form</h4>
             <form method="post" class="needs-validation" action="/add/add">
@@ -63,7 +58,6 @@ include "tpl/navbar.phtml";
                     <div class="col-md-6 mb-3">
                         <label for="price">PRICE</label>
                         <input type="number" class="form-control" id="price" name="price" placeholder="" value="" min="0.01" max="9999" step="0.01" required>
-  
                         <div class="invalid-feedback">
                             Valid price is required.
                         </div>
@@ -76,7 +70,6 @@ include "tpl/navbar.phtml";
                         </div>
                     </div>
                 </div>
-
                 <div class="mb-3">
                     <label for="sku">SKU</label>
                     <div class="input-group">
@@ -90,7 +83,6 @@ include "tpl/navbar.phtml";
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-md-5 mb-3">
                         <label for="type">TYPE Switcher</label>
@@ -105,32 +97,24 @@ include "tpl/navbar.phtml";
                         </div>
                     </div>
                 </div>
-
-                <!-- Here we enter dynamic form from js  -->
+                <!-- START of dynamic form from js  -->
                 <div id="pole1">
-
                 </div>
-
-                <hr class="mb-4">
-
+                <!-- END of  dynamic form from js  -->
                 <hr class="mb-4">
                 <button class="btn btn-primary btn-lg btn-block" id="addbutton" type="submit">Add</button>
             </form>
         </div>
+        <!-- End of Form -->
     </div>
-    <!-- End of Form -->
-
-
     <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2019 For Scandi Web Test</p>
+        <p class="mb-1">&copy; 2019 For ScandiWeb Test</p>
         <ul class="list-inline">
             <li class="list-inline-item"><a href="/">Main</a></li>
             <li class="list-inline-item"><a href="/add/">Add Form</a></li>
         </ul>
     </footer>
 </div>
-
-
 <!-- Scripts -->
 <script src="/vendor/jquery.min.js">
 </script>
@@ -138,7 +122,5 @@ include "tpl/navbar.phtml";
 <?php
 include "tpl/scripts.phtml";
 ?>
-
-
 </body>
 </html>

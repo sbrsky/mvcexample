@@ -1,18 +1,14 @@
 <?php
+
 /**
  * CONFIG FILE
  * PATHS
  * DB LOGIN (MySQL)
  *
- *
  * for localhost
  *
  */
-
-
 define ('BASEURL', 'http://localhost/');
-
-
 define ('DIRSEP', DIRECTORY_SEPARATOR);
 
 $site_path = realpath(dirname(__FILE__) . DIRSEP . '..' . DIRSEP)  . DIRSEP;
@@ -22,9 +18,7 @@ $view_path = realpath(dirname(__FILE__) . DIRSEP . '..' . DIRSEP) . DIRSEP. 'vie
 define ('VIEW_PATH', $view_path);
 
 $image_path = realpath(dirname(__FILE__) . DIRSEP . '..' . DIRSEP) . DIRSEP. 'photos' . DIRSEP. 'action' . DIRSEP;
-
 define ('IMAGE_PATH', $image_path);
-
 
  /*DATABASE LOGIN DETAILS*/
 define ('DBHOST', 'localhost');
@@ -32,5 +26,4 @@ define ('DBUSER', 'root');
 define ('DBPASS', '');
 define ('DBNAME', 'test');
 define ('CHARSET', 'utf8mb4');
-
 define ('THUBN', 'th_');

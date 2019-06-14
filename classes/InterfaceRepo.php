@@ -1,10 +1,9 @@
 <?php
 
-
 interface InterfaceRepo
 {
-    public function add(Card $product);
+    public function add(BaseProduct $product);
     public function selectAll();
-    function pdoPrepareSql($permitted, &$values, $source = array());
-
+    public function deleteProductById($arr);
+    public function pdoPrepareSql($permitted, &$values, $source = array());
 }

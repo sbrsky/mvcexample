@@ -1,21 +1,18 @@
 <?php
 
-
-class DvdCard extends Card
+class DvdProduct extends BaseProduct
 {
     private $size;
-
     /**
-     * Card constructor.
-     * @param $name
-     * @param $price
-     * @param $sku
+     * @var string
      */
+    private $attribute;
+
     public function __construct($incomePostArray)
     {
         parent::__construct($incomePostArray);
         $this->size = $incomePostArray['size'];
-
+        $this->attribute = 'Mb';
     }
 
     /**
@@ -35,7 +32,11 @@ class DvdCard extends Card
         $incomePostArray['size'] = $size;
     }
 
-
-
-
+    /**
+     * @return string. ( specific parameter different for each product type. )
+     */
+    function getOption()
+    {
+        return $this->size . ' ' . $this->attribute;
+    }
 }

@@ -1,40 +1,33 @@
 <?php
 
-
-class BookCard extends Card
+class BookProduct extends BaseProduct
 {
     private $weight;
+    private $attribute;
 
-    /**
-     * Card constructor.
-     * @param $incomePostArray
-     */
     public function __construct($incomePostArray)
     {
         parent::__construct($incomePostArray);
         $this->weight = $incomePostArray['weight'];
-
-
+        $this->attribute = 'Kg';
     }
 
-    /**
-     * @return mixed
-     */
     public function getWeight()
     {
         return $this->weight;
     }
 
-    /**
-     * @param mixed $weight
-     */
     public function setWeight($weight)
     {
         $this->weight = $weight;
         $incomePostArray['weight'] = $weight;
     }
 
-
-
-
+    /**
+     * @return string. ( specific parameter different for each product type. )
+     */
+    function getOption()
+    {
+        return $this->weight . ' ' . $this->attribute;
+    }
 }

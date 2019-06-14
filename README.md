@@ -40,7 +40,7 @@ Data base dump exists in : db_dump/sku.sql
 
 1 - Entrance point : index .php 
 1.1 - Including Config file
-1.2 - Setting Layout, Registry , Route .
+1.2 - Setting Registry , Route .
 // Registry - global vars
 // Route - Define Controllers, Model .
 1.3 Start route (delegate method)
