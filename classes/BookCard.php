@@ -13,10 +13,27 @@ class BookCard extends Card
     {
         parent::__construct($incomePostArray);
         $this->weight = $incomePostArray['weight'];
-        $this->sql = "INSERT INTO `sku` (`id`, `name`, `price`, `sku`, `weight`,`type`) VALUES (NULL, '$this->name', '$this->price', '$this->sku', '$this->weight','$this->type');";
 
 
     }
+
+    /**
+     * @return mixed
+     */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
+    /**
+     * @param mixed $weight
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+        $incomePostArray['weight'] = $weight;
+    }
+
 
 
 

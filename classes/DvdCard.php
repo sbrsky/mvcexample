@@ -15,9 +15,26 @@ class DvdCard extends Card
     {
         parent::__construct($incomePostArray);
         $this->size = $incomePostArray['size'];
-        $this->sql = "INSERT INTO `sku` (`id`, `name`, `price`, `sku`, `size`,`type`) VALUES (NULL, '$this->name', '$this->price', '$this->sku', '$this->size','$this->type');";
 
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSize()
+    {
+        return $this->size;
+    }
+
+    /**
+     * @param mixed $size
+     */
+    public function setSize($size)
+    {
+        $this->size = $size;
+        $incomePostArray['size'] = $size;
+    }
+
 
 
 

@@ -1,6 +1,6 @@
 <?php
 
-require_once SITE_PATH . 'model' . DIRSEP . 'Model.php';
+
 class ProductRepo implements InterfaceRepo
 {
 
@@ -12,6 +12,7 @@ class ProductRepo implements InterfaceRepo
 
     public function __construct()
     {
+        require_once SITE_PATH . 'model' . DIRSEP . 'Model.php';
         $this->model = new Model();
     }
 
@@ -20,8 +21,7 @@ class ProductRepo implements InterfaceRepo
 
         $permitted = array("name","sku","price","size","weight","width","length","height","type");
         $sql = "INSERT INTO $this->nameTable SET ".$this->pdoPrepareSql($permitted,$values,$product->getAlldata());
-        $product->setSql($sql);
-        $this->model->insertToBase($product,$values);
+        $this->model->insertToBase($sql,$values);
     }
 
     public function selectAll()

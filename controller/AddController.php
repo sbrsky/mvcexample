@@ -1,7 +1,5 @@
 <?php
 
-require_once SITE_PATH . 'model' . DIRSEP . 'Model.php';
-
 /**
  * Class Controller_Add
  *

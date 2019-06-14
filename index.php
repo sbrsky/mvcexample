@@ -13,22 +13,9 @@ function __autoload($class_name)
     include($file);
 }
 
-/*File with Global Variables */
+/* Global Variables */
 $registry = new Registry;
 
-/*
-* connect to DataBase
-*/
-$mysqli = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-$registry->set('mysqli', $mysqli);
-
-
-/*
-* include Layout
-*/
-$layout = new Layout($registry);
-$registry->set('layout', $layout);
-//var_dump($registry['layout']);
 
 $view = new View();
 $registry->set('view', $view);
