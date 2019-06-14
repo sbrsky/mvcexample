@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 09, 2019 at 03:10 PM
+-- Generation Time: Jun 14, 2019 at 01:58 PM
 -- Server version: 8.0.15
 -- PHP Version: 7.1.22
 
@@ -46,8 +46,9 @@ CREATE TABLE `sku` (
 --
 
 INSERT INTO `sku` (`id`, `name`, `price`, `sku`, `size`, `weight`, `height`, `width`, `length`, `type`) VALUES
-(2, 'War and peace', '14.00', 'BOOK4000X', 0, 5, NULL, NULL, NULL, 'book'),
-(31, 'ACME DISC', '14.00', 'SKU444DISC', 700, 0, 0, 0, 0, 'dvd');
+(80, 'Sony', '298.23', 'JVC200123', 700, 0, 0, 0, 0, 'dvd'),
+(81, 'Philip Dick', '18.69', 'GGWP0007', 0, 2, 0, 0, 0, 'book'),
+(82, 'Chair', '48.67', 'TR1298SKU', 0, 0, 4, 5, 14, 'furniture');
 
 --
 -- Indexes for dumped tables
@@ -67,7 +68,7 @@ ALTER TABLE `sku`
 -- AUTO_INCREMENT for table `sku`
 --
 ALTER TABLE `sku`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
