@@ -12,4 +12,8 @@ abstract class Controller
         $this->registry = $registry;
         $this->productRepo = new ProductRepo();
     }
+    function logout(){
+        session_destroy();
+        header("Location: /");
+    }
 }

@@ -25,6 +25,16 @@
                 </div>
 
         <?php } ?>
+        <div class="btn-group dropdown mr-3">
+            <button type="button" class="btn btn-warning my-2 my-sm-0 m-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                user: <?php echo $_SESSION['user'] ?>
+            </button>
+            <div class="dropdown-menu">
+                <!-- Dropdown menu links -->
+                <a href="/main/logout" class="dropdown-item" role="button" aria-disabled="true">Log Out</a>
+
+            </div>
+        </div>
             <a href="/add/" class="btn btn-outline-success my-2 my-sm-0" tabindex="-1" role="button" aria-disabled="true">Add Product</a>
 
     </div>

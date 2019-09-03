@@ -43,22 +43,33 @@ Class Router
         $action     = 'index'; // Default action
         $route = explode("/", $_SERVER['REQUEST_URI']);
 
-        //** Define Controller\action
-        if ($route[1] != '') {
-            $controller = ucfirst($route[1]);
+        if (!empty($_SESSION['user'])) {
+            //** Define Controller\action
+            if ($route[1] != '') {
+                $controller = ucfirst($route[1]);
+            }
+            if (isset($route[2]) && $route[2] != '') {
+                $action = $route[2];
+            }
+
+            $file = $this->path . ucfirst($controller) . "Controller" . '.php'; //** Set name of Controller for including
+            include ($file);
+
+            //** Creating controller bean
+            $class =  $controller . 'Controller';
+            $controller = new $class($this->registry);
+
+            //** Start controller's action
+            $controller->$action();
+        } else {
+            $file = $this->path . "Login" . "Controller" . '.php'; //** Set name of Controller for including
+            include ($file);
+            $controller = new LoginController($this->registry);
+            if (isset($route[2]) && $route[2] != '') {
+                $action = $route[2];
+            }
+            //** Start controller's action
+            $controller->$action();
         }
-        if (isset($route[2]) && $route[2] != '') {
-            $action = $route[2];
-        }
-
-        $file = $this->path . ucfirst($controller) . "Controller" . '.php'; //** Set name of Controller for including
-        include ($file);
-
-        //** Creating controller bean
-        $class =  $controller . 'Controller';
-        $controller = new $class($this->registry);
-
-        //** Start controller's action
-        $controller->$action();
     }
 }
